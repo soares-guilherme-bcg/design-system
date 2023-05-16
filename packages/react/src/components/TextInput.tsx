@@ -1,0 +1,63 @@
+import { ComponentProps } from 'react'
+import { styled } from '../styles'
+
+const TextInputContainer = styled('div', {
+  backgroundColor: '$gray900',
+  padding: '$3 $4',
+  borderRadius: '$sm',
+  boxSizing: 'border-box',
+  border: '2px solid $gray900',
+  display: 'flex',
+  alignItems: 'baseline',
+
+  '&:has(input:focus)': {
+    borderColor: '$ignite300',
+  },
+
+  '&:has(input:disabled)': {
+    cursor: 'not-allowed',
+    opacity: 0.5,
+  },
+})
+
+const Prefix = styled('span', {
+  fontFamily: '$default',
+  fontSize: '$sm',
+  color: '$gray400',
+  fontWeight: '$regular',
+})
+
+const Input = styled('input', {
+  fontFamily: '$default',
+  fontSize: '$sm',
+  color: '$white',
+  fontWeight: '$regular',
+  backgroundColor: 'transparent',
+  width: '100%',
+  border: 0,
+
+  '&:focus': {
+    outline: 0,
+  },
+
+  '&:disabled': {
+    cursor: 'not-allowed',
+  },
+
+  '&:placeholder': {
+    color: '$gray400',
+  },
+})
+
+export interface TextInputProps extends ComponentProps<typeof Input> {
+  prefix?: string
+}
+
+export function TextInput({ prefix, ...props }: TextInputProps) {
+  return (
+    <TextInputContainer>
+      {!!prefix && <Prefix>{prefix}</Prefix>}
+      <Input {...props} />
+    </TextInputContainer>
+  )
+}
