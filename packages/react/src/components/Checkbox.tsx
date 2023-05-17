@@ -41,7 +41,7 @@ const CheckboxContainer = styled(ReactCheckbox.Root, {
     backgroundColor: '$ignite300',
   },
 
-  '&:focus': {
+  '&:focus, &[data-state=checked]': {
     borderColor: '$ignite300',
   },
 })

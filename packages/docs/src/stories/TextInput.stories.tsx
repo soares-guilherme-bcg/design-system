@@ -5,7 +5,17 @@ export default {
   title: 'Form/Text Input',
   component: TextInput,
   tags: ['autodocs'],
-  args: {},
+  args: {
+    size: 'md',
+  },
+  argTypes: {
+    size: {
+      options: ['sm', 'md'],
+      control: {
+        type: 'inline-radio',
+      },
+    },
+  },
   decorators: [
     (Story) => {
       return (
@@ -30,6 +40,7 @@ export const Primary: StoryObj<TextInputProps> = {
 export const WithPrefix: StoryObj<TextInputProps> = {
   args: {
     prefix: 'call.com/',
+    placeholder: 'Type something...',
   },
 }
 

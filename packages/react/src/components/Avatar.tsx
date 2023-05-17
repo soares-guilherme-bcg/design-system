@@ -6,8 +6,8 @@ import { ComponentProps } from 'react'
 const AvatarContainer = styled(ReactAvatar.Root, {
   borderRadius: '$full',
   display: 'inline-block',
-  width: '$12',
-  height: '$12',
+  width: '$16',
+  height: '$16',
   overflow: 'hidden',
 })
 

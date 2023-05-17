@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react'
+import { ComponentProps, ElementRef, forwardRef } from 'react'
 import { styled } from '../styles'
 
 const TextInputContainer = styled('div', {
@@ -8,7 +8,7 @@ const TextInputContainer = styled('div', {
   boxSizing: 'border-box',
   border: '2px solid $gray900',
   display: 'flex',
-  alignItems: 'baseline',
+  alignItems: 'center',
 
   '&:has(input:focus)': {
     borderColor: '$ignite300',
@@ -44,8 +44,23 @@ const Input = styled('input', {
     cursor: 'not-allowed',
   },
 
-  '&:placeholder': {
+  '&::placeholder': {
     color: '$gray400',
+  },
+
+  variants: {
+    size: {
+      sm: {
+        padding: '$2 $3',
+      },
+      md: {
+        padding: '$3 $4',
+      },
+    },
+  },
+
+  defaultVariants: {
+    size: 'md',
   },
 })
 
@@ -53,11 +68,15 @@ export interface TextInputProps extends ComponentProps<typeof Input> {
   prefix?: string
 }
 
-export function TextInput({ prefix, ...props }: TextInputProps) {
-  return (
-    <TextInputContainer>
-      {!!prefix && <Prefix>{prefix}</Prefix>}
-      <Input {...props} />
-    </TextInputContainer>
-  )
-}
+export const TextInput = forwardRef<ElementRef<typeof Input>, TextInputProps>(
+  ({ prefix, ...props }, ref) => {
+    return (
+      <TextInputContainer>
+        {!!prefix && <Prefix>{prefix}</Prefix>}
+        <Input ref={ref} {...props} />
+      </TextInputContainer>
+    )
+  },
+)
+
+TextInput.displayName = 'TextInput'
