@@ -2,7 +2,7 @@ import type { StoryObj, Meta } from '@storybook/react'
 import { Avatar, AvatarProps } from '@gui-ui/react'
 
 export default {
-  title: 'Data dsiplay/Avatar',
+  title: 'Data Display/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   args: {

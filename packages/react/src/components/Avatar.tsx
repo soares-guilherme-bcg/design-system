@@ -1,7 +1,7 @@
+import { ComponentProps } from 'react'
 import * as ReactAvatar from '@radix-ui/react-avatar'
 import { User } from 'phosphor-react'
 import { styled } from '../styles'
-import { ComponentProps } from 'react'
 
 const AvatarContainer = styled(ReactAvatar.Root, {
   borderRadius: '$full',

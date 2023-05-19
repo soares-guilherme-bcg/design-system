@@ -1,8 +1,8 @@
+import { ComponentProps } from 'react'
 import * as ReactCheckbox from '@radix-ui/react-checkbox'
 import { Check } from 'phosphor-react'
 
 import { styled, keyframes } from '../styles'
-import { ComponentProps } from 'react'
 
 const slideIn = keyframes({
   from: {
