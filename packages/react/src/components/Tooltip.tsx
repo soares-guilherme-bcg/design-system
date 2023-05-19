@@ -109,3 +109,5 @@ export function Tooltip({
     </ReactTooltip.Provider>
   )
 }
+
+Tooltip.displayName = 'Tooltip'

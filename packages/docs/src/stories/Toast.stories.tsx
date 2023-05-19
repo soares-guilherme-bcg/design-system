@@ -1,10 +1,10 @@
 import type { StoryObj, Meta } from '@storybook/react'
-import { Toast, ToastProps, Button } from '@gui-ui/react'
+import { Toast as ToastComponent, ToastProps, Button } from '@gui-ui/react'
 import { useEffect, useRef, useState } from 'react'
 
 export default {
   title: 'Feedback/Toast',
-  component: Toast,
+  component: ToastComponent,
   tags: ['autodocs'],
   args: {
     title: 'Upgrade available',
@@ -38,10 +38,12 @@ const ToastWithHooks = (args: ToastProps) => {
   return (
     <>
       <Button onClick={onOpenToast}>Upgrade</Button>
-      <Toast open={open} onOpenChange={setOpen} {...args} />
+      <ToastComponent open={open} onOpenChange={setOpen} {...args} />
     </>
   )
 }
+
+ToastWithHooks.displayName = 'Toast'
 
 export const Primary: StoryObj<ToastProps> = {
   render: (args) => <ToastWithHooks {...args} />,
